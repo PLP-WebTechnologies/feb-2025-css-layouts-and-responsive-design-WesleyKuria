@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around; /* Distribute items evenly */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5em 1em;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex; /* Enable Flexbox for the main container */
+            padding: 20px;
+            gap: 20px; /* Spacing between container items */
+        }
+
+        .sidebar {
+            background-color: #ddd;
+            padding: 20px;
+            /* Flex basis will be adjusted with media queries */
+            flex-basis: 30%;
+        }
+
+        .content {
+            background-color: white;
+            padding: 20px;
+            flex-grow: 1; /* Allow content to take up remaining space */
+        }
+
+        .item {
+            background-color: lightblue;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: sticky; /* Example of sticky footer */
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Media Queries for Responsiveness */
+
+        /* Mobile View (max-width: 600px) */
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column; /* Stack items vertically on small screens */
+            }
+
+            .sidebar {
+                flex-basis: 100%;
+                margin-bottom: 20px;
+            }
+
+            nav ul {
+                flex-direction: column; /* Stack navigation items */
+                align-items: center; /* Center navigation items */
+            }
+
+            nav ul li {
+                margin-bottom: 0.5em;
+            }
+        }
+
+        /* Tablet View (min-width: 601px and max-width: 1024px) */
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .container {
+                flex-direction: row; /* Keep items in a row */
+            }
+
+            .sidebar {
+                flex-basis: 35%;
+            }
+        }
+
+        /* Desktop View (min-width: 1025px) - Default styles apply */
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Sidebar</h2>
+            <p>This is the sidebar content.</p>
+        </aside>
+        <main class="content">
+            <h1>Main Content</h1>
+            <p>This is the main content area of the page. It will adjust its width based on the screen size and the sidebar.</p>
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 My Responsive Website</p>
+    </footer>
+</body>
+</html>
